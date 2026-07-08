@@ -1,0 +1,13 @@
+/* layout.css — structure commune BO / FO : sidebar fixe + contenu défilant */
+
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.layout-main {
+  flex: 1;
+  overflow-y: auto; /* seul le contenu défile, la sidebar reste fixe */
+  background: var(--bg);
+}

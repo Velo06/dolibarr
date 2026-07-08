@@ -1,0 +1,81 @@
+.sidebar {
+  width: 240px;
+  height: 100vh;
+
+  background: var(--bg, #0f172a); /* bleu foncé admin */
+  color: var(--text, #e2e8f0);
+  border-right: 1px solid var(--border, #334155);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px 16px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+
+  margin-bottom: 30px;
+  color: #38bdf8;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu button {
+  background: transparent;
+  border: none;
+
+  color: #e2e8f0;
+  padding: 12px 14px;
+
+  text-align: left;
+  font-size: 14px;
+
+  border-radius: 8px;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.menu button:hover {
+  background: #1e293b;
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.menu button.active {
+  background: #334155;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.logout {
+  width: 100%;
+  padding: 10px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #ef4444;
+  color: white;
+
+  cursor: pointer;
+  font-weight: 500;
+
+  transition: background 0.2s ease;
+}
+
+.logout:hover {
+  background: #dc2626;
+}

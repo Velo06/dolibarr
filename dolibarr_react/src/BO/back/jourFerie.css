@@ -1,0 +1,212 @@
+/* ─────────────────────────────────────────────
+   jourFerie.css — page "Jours fériés" (BO)
+   Réutilise le thème sombre "slate" (voir index.css).
+   ───────────────────────────────────────────── */
+
+.jf-page {
+  padding: 32px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--text);
+}
+
+.jf-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.jf-title {
+  margin: 0;
+  font-size: 22px;
+  color: var(--text-strong);
+}
+
+.jf-subtitle {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ── Carte ── */
+.jf-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 20px 20px;
+  box-shadow: var(--shadow);
+}
+
+/* ── Tableau ── */
+.jf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.jf-table th,
+.jf-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.jf-table th {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.jf-table tbody tr:hover {
+  background: var(--surface-2);
+}
+
+.jf-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.jf-id {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.jf-date {
+  font-variant-numeric: tabular-nums;
+}
+
+.jf-row-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.jf-empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 40px 16px;
+}
+
+.jf-loading {
+  text-align: center;
+  color: var(--muted);
+  padding: 48px;
+}
+
+/* ── Boutons ── */
+.jf-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--surface-2);
+  color: var(--text);
+  transition: filter 0.15s ease, transform 0.1s ease;
+}
+
+.jf-btn:hover:not(:disabled) {
+  filter: brightness(1.18);
+}
+
+.jf-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.jf-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.jf-btn--primary {
+  background: var(--accent-deep);
+  color: #fff;
+}
+
+.jf-btn--ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.jf-btn--danger {
+  background: transparent;
+  border: 1px solid var(--err);
+  color: var(--err);
+}
+
+.jf-btn--danger:hover:not(:disabled) {
+  background: var(--err-bg);
+  filter: none;
+}
+
+.jf-btn--sm {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+/* ── Modale ── */
+.jf-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.65);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 50;
+}
+
+.jf-modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+}
+
+.jf-modal__title {
+  margin: 0 0 20px;
+  font-size: 17px;
+  color: var(--text-strong);
+}
+
+.jf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.jf-field label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.jf-input {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  transition: border-color 0.15s ease;
+  width: 100%;
+}
+
+.jf-input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.jf-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}

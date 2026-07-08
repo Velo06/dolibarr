@@ -1,0 +1,525 @@
+/* ImportPage.css */
+
+/* ── Tokens ───────────────────────────────────── */
+:root {
+  --imp-bg:        #0f1117;
+  --imp-surface:   #181c27;
+  --imp-border:    #262d3d;
+  --imp-accent:    #4f7cff;
+  --imp-accent-2:  #7c4fff;
+  --imp-ok:        #22c55e;
+  --imp-err:       #ef4444;
+  --imp-warn:      #f59e0b;
+  --imp-text:      #e8eaf2;
+  --imp-muted:     #6b7a99;
+  --imp-card-r:    12px;
+  --imp-font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --imp-font:      'DM Sans', 'Outfit', system-ui, sans-serif;
+}
+
+/* ── Layout ───────────────────────────────────── */
+.imp-page {
+  min-height: 100vh;
+  background: var(--imp-bg);
+  color: var(--imp-text);
+  font-family: var(--imp-font);
+  padding: 2.5rem clamp(1rem, 5vw, 3rem) 4rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ── Header ───────────────────────────────────── */
+.imp-header {
+  margin-bottom: 2.5rem;
+}
+
+.imp-header-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--imp-accent), var(--imp-accent-2));
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  margin-bottom: 0.75rem;
+}
+
+.imp-title {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.4rem;
+  background: linear-gradient(130deg, #e8eaf2 30%, #6b7a99);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.imp-subtitle {
+  color: var(--imp-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ── Drop zones grid ──────────────────────────── */
+.imp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.imp-dropzone {
+  position: relative;
+  background: var(--imp-surface);
+  border: 1.5px dashed var(--imp-border);
+  border-radius: var(--imp-card-r);
+  padding: 1.4rem 1.25rem;
+  cursor: pointer;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  user-select: none;
+}
+
+.imp-dropzone:hover {
+  border-color: var(--imp-accent);
+  background: #1a1f30;
+  transform: translateY(-1px);
+}
+
+.imp-dropzone--drag {
+  border-color: var(--imp-accent);
+  background: #1a2340;
+  transform: scale(1.01);
+}
+
+.imp-dropzone--filled {
+  border-style: solid;
+  border-color: #2a3550;
+  background: #181d2e;
+}
+
+.imp-dropzone--optional {
+  opacity: 0.75;
+}
+
+.imp-dropzone--optional:hover { opacity: 1; }
+
+.imp-dropzone-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  color: var(--imp-accent);
+  opacity: 0.8;
+}
+
+.imp-dropzone-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.imp-dropzone-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.imp-dropzone-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--imp-text);
+  line-height: 1.2;
+}
+
+.imp-dropzone-sub {
+  font-size: 0.7rem;
+  color: var(--imp-muted);
+  font-family: var(--imp-font-mono);
+  line-height: 1.4;
+  word-break: break-all;
+}
+
+.imp-dropzone-hint {
+  font-size: 0.72rem;
+  color: var(--imp-muted);
+  margin-top: 0.3rem;
+}
+
+.imp-dropzone-file {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-family: var(--imp-font-mono);
+  color: var(--imp-ok);
+  margin-top: 0.3rem;
+  word-break: break-all;
+}
+
+.imp-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.imp-dot--ok { background: var(--imp-ok); }
+
+.imp-remove {
+  background: none;
+  border: none;
+  color: var(--imp-muted);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0 0.1rem;
+  margin-left: auto;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.imp-remove:hover { color: var(--imp-err); }
+
+/* ── Actions ──────────────────────────────────── */
+.imp-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.imp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--imp-font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.65rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.12s, box-shadow 0.15s;
+  letter-spacing: 0.01em;
+}
+
+.imp-btn--primary {
+  background: linear-gradient(135deg, var(--imp-accent), var(--imp-accent-2));
+  color: #fff;
+  box-shadow: 0 0 0 0 var(--imp-accent);
+}
+
+.imp-btn--primary:hover:not(:disabled) {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(79, 124, 255, 0.35);
+}
+
+.imp-btn--primary:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.imp-btn--ghost {
+  background: var(--imp-surface);
+  color: var(--imp-muted);
+  border: 1.5px solid var(--imp-border);
+}
+
+.imp-btn--ghost:hover {
+  color: var(--imp-text);
+  border-color: var(--imp-accent);
+}
+
+/* ── Spinner ──────────────────────────────────── */
+.imp-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: imp-spin 0.6s linear infinite;
+}
+
+@keyframes imp-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Alert ────────────────────────────────────── */
+.imp-alert {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  border-radius: var(--imp-card-r);
+  padding: 1rem 1.25rem;
+  font-size: 0.88rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.55;
+}
+
+.imp-alert--success {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #86efac;
+}
+
+.imp-alert--error {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.imp-alert-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+.imp-error-list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* ── Log console ──────────────────────────────── */
+.imp-log {
+  background: #0a0d14;
+  border: 1px solid var(--imp-border);
+  border-radius: var(--imp-card-r);
+  overflow: hidden;
+}
+
+.imp-log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 1rem;
+  background: var(--imp-surface);
+  border-bottom: 1px solid var(--imp-border);
+}
+
+.imp-log-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--imp-muted);
+}
+
+.imp-log-count {
+  font-size: 0.7rem;
+  color: var(--imp-muted);
+  font-family: var(--imp-font-mono);
+}
+
+.imp-log-body {
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--imp-border) transparent;
+}
+
+.imp-log-line {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.2rem 1rem;
+  font-family: var(--imp-font-mono);
+  font-size: 0.75rem;
+  color: var(--imp-muted);
+  transition: background 0.1s;
+}
+
+.imp-log-line:hover { background: rgba(255,255,255,0.02); }
+
+.imp-log-line--ok { color: var(--imp-ok); }
+.imp-log-line--err { color: var(--imp-err); }
+
+.imp-log-idx {
+  color: #2a3550;
+  flex-shrink: 0;
+  font-size: 0.68rem;
+}
+
+/* ── Champs de fichier (un par fichier) ───────── */
+.imp-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.imp-field {
+  display: block;
+  background: var(--imp-surface);
+  border: 1.5px solid var(--imp-border);
+  border-radius: var(--imp-card-r);
+  padding: 1.1rem 1.2rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.imp-field:hover { border-color: var(--imp-accent); }
+
+.imp-field-pick {
+  display: block;
+  cursor: pointer;
+}
+
+.imp-field-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--imp-border);
+  font-size: 0.8rem;
+  color: var(--imp-text);
+  cursor: pointer;
+}
+
+.imp-field--filled {
+  border-style: solid;
+  border-color: #2a3550;
+  background: #181d2e;
+}
+
+.imp-field-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.imp-field-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--imp-text);
+}
+
+.imp-field-hint {
+  font-size: 0.72rem;
+  color: var(--imp-muted);
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.imp-field-input {
+  display: block;
+  width: 100%;
+  font-size: 0.78rem;
+  color: var(--imp-muted);
+}
+
+.imp-field-input::file-selector-button {
+  font-family: var(--imp-font);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--imp-accent), var(--imp-accent-2));
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.9rem;
+  margin-right: 0.75rem;
+  cursor: pointer;
+}
+
+.imp-field-input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.imp-field-file {
+  margin-top: 0.7rem;
+  font-size: 0.75rem;
+  font-family: var(--imp-font-mono);
+  color: var(--imp-ok);
+  word-break: break-all;
+}
+
+/* ── Compteurs (aperçu / stats) ───────────────── */
+.imp-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.imp-count {
+  background: var(--imp-surface);
+  border: 1px solid var(--imp-border);
+  border-radius: var(--imp-card-r);
+  padding: 0.85rem 1.25rem;
+  text-align: center;
+  min-width: 96px;
+}
+
+.imp-count--danger { border-color: rgba(239, 68, 68, 0.5); }
+
+.imp-count-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--imp-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.imp-count-label {
+  font-size: 0.68rem;
+  color: var(--imp-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.15rem;
+}
+
+/* ── Tables d'aperçu ──────────────────────────── */
+.imp-preview { margin-bottom: 1.5rem; }
+
+.imp-preview-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--imp-muted);
+  margin: 0 0 0.5rem;
+}
+
+.imp-preview-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--imp-border);
+  border-radius: var(--imp-card-r);
+}
+
+.imp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.imp-table th,
+.imp-table td {
+  padding: 0.55rem 0.85rem;
+  text-align: left;
+  border-bottom: 1px solid var(--imp-border);
+  white-space: nowrap;
+}
+
+.imp-table th {
+  color: var(--imp-muted);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--imp-surface);
+}
+
+.imp-table tr:last-child td { border-bottom: none; }
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 560px) {
+  .imp-grid { grid-template-columns: 1fr; }
+}

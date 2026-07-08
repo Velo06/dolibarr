@@ -1,0 +1,85 @@
+/* foSidebar.css — même langage visuel que la sidebar BO */
+
+.fo-sidebar {
+  width: 240px;
+  height: 100vh;
+
+  background: var(--bg, #0f172a);
+  color: var(--text, #e2e8f0);
+  border-right: 1px solid var(--border, #334155);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px 16px;
+}
+
+.fo-sidebar .logo {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.5px;
+
+  margin: 0 0 30px;
+  color: var(--accent, #38bdf8);
+}
+
+.fo-sidebar .menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fo-sidebar .menu button {
+  background: transparent;
+  border: none;
+
+  color: var(--text, #e2e8f0);
+  padding: 12px 14px;
+
+  text-align: left;
+  font-size: 14px;
+
+  border-radius: 8px;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.fo-sidebar .menu button:hover {
+  background: var(--surface, #1e293b);
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.fo-sidebar .menu button.active {
+  background: var(--surface-2, #334155);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.fo-sidebar .footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--border, #334155);
+}
+
+.fo-sidebar .logout {
+  width: 100%;
+  padding: 10px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: var(--surface-2, #334155);
+  color: var(--text, #e2e8f0);
+
+  cursor: pointer;
+  font-weight: 500;
+
+  transition: background 0.2s ease;
+}
+
+.fo-sidebar .logout:hover {
+  background: #475569;
+}

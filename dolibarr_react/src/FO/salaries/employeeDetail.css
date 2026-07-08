@@ -1,0 +1,270 @@
+/* ─────────────────────────────────────────────
+   employeeDetail.css — fiche détaillée d'un salarié
+   Thème sombre "slate" (voir index.css).
+   ───────────────────────────────────────────── */
+
+.emp-page {
+  padding: 32px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: var(--text);
+}
+
+.emp-loading {
+  text-align: center;
+  color: var(--muted);
+  padding: 64px;
+}
+
+/* ── En-tête / carte d'identité ── */
+.emp-hero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+.emp-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.emp-hero__main {
+  flex: 1;
+  min-width: 0;
+}
+
+.emp-name {
+  margin: 0;
+  font-size: 22px;
+  color: var(--text-strong);
+}
+
+.emp-job {
+  margin: 4px 0 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.emp-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.emp-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.emp-badge--ok {
+  background: var(--ok-bg);
+  color: var(--ok);
+}
+
+.emp-badge--muted {
+  background: var(--surface-2);
+  color: var(--muted);
+}
+
+.emp-badge--accent {
+  background: var(--accent-deep);
+  color: #fff;
+}
+
+/* ── Informations personnelles (un seul div) ── */
+.emp-personal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 32px;
+}
+
+.emp-personal__title {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.emp-personal__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.emp-personal__row:last-child {
+  border-bottom: none;
+}
+
+.emp-personal__label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.emp-personal__value {
+  font-size: 15px;
+  color: var(--text-strong);
+  text-align: right;
+  word-break: break-word;
+}
+
+/* ── Sections ── */
+.emp-section-title {
+  font-size: 16px;
+  color: var(--text-strong);
+  margin: 0 0 16px;
+}
+
+/* ── Carte de salaire ── */
+.emp-salary-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+.emp-salary-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.emp-salary-card__label {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-strong);
+}
+
+.emp-salary-card__meta {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.emp-salary-card__amount {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-strong);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ── Récapitulatif du solde ── */
+.emp-balance {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.emp-balance__item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+
+.emp-balance__label {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.emp-balance__value {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.emp-balance__value--remaining {
+  color: var(--accent);
+}
+
+/* ── Barre de progression ── */
+.emp-progress {
+  height: 8px;
+  background: var(--bg);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 18px;
+}
+
+.emp-progress__bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent));
+  transition: width 0.3s ease;
+}
+
+/* ── Tableau des paiements ── */
+.emp-payments-title {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px;
+}
+
+.emp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.emp-table th,
+.emp-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.emp-table th {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.emp-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.emp-table__num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.emp-empty {
+  color: var(--muted);
+  font-size: 14px;
+  padding: 12px 0;
+}
